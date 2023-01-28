@@ -13,10 +13,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//@desc Routes goes here
+//Goal Routes goes here
 app.use("/api/goals", require("./routes/goalRoutes"));
+
+//User Routes goes here
 app.use("/api/users", require("./routes/userRoutes"));
 
+//Call custom error handler
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server runs on port:${port}`));
